@@ -26,5 +26,39 @@
     <br>
     <label for="maindoughHydration">Hydration (in %):</label>
     <input type="text" id="maindoughHydration" name="maindoughHydration" oninput="onChange('maindoughHydration'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+    <br>
+    <label for="saltPercentage">Salz (in %):</label>
+    <input type="text" id="saltPercentage" name="saltPercentage" value="2.5" oninput="onChange('saltPercentage'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+    <br>
+    <label for="saltGramms">Salz (in g):</label>
+    <input type="text" id="saltGramms" name="saltGramms" oninput="onChange('saltGramms'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+    <h2>Beispiel</h2>
+    Du möchtest ein Brot mit 100g Sauerteig-Starter und 500g zusätzlichem Mehl machen. Sauerteig hat typischerweise eine Hydration von 100%, d.h. gleich viel Wasser wie Mehl. Der Teig soll insgesamt eine Hydration von 60% haben. Du musst also eingeben:
+    <ul>
+        <li>Vorteig:</li>
+        <ul>
+            <li>Hydration: 100%</li>
+            <li>Menge: 100g</li>
+        </ul>
+        <li>Hauptteig:</li>
+        <ul>
+            <li>Menge: 500g</li>
+            <li>Hydration: 60%</li>
+            <li>Wasser: wird berechnet, so dass gewünschte Hydration erreicht</li>
+        </ul>
+    </ul>
+    <h2>Tipps</h2>
+    <ul>
+        <li>Hydration</li>
+        <ul>
+            <li>Gute Werte: 60% - 70%</li>
+            <li>Generell: Je höher Hydration, desto luftiger das Brot ...</li>
+            <li>aber auch desto schwieriger das Handling (klebrig).</li>
+        </ul>
+        <li>Salz</li>
+        <ul>
+            <li>Gute Werte: 2%-3%</li>
+        </ul>
+    </ul>
 </body>
 </html>
