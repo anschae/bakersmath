@@ -1,9 +1,12 @@
 body {
     background-color: bisque;
     font-family: sans-serif;
+    border-radius: 30%;
+    font-size:large;
 }
 
 input{
     background-color:aliceblue;
     margin: 0.5em;
+    width: 1.5cm;
 }
