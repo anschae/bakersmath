@@ -12,7 +12,7 @@
     <h1>Rechner Hydration für Teig mit Vorteig</h1>
     <h2>Vorteig (z.B. Sauerteig)</h2>
     <label for="predoughHydration">Hydration (in %):</label>
-    <input type="text" id="predoughHydration" name="predoughHydration" value="100" oninput="onChange('predoughHydration'),this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" />
+    <input type="text" id="predoughHydration" name="predoughHydration" value="100" oninput="onChange('predoughHydration'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
     <br>
     <label for="predoughMass">Menge (in g):</label>
     <input type="text" id="predoughMass" name="predoughMass" value="100" oninput="onChange('predoughMass'),this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" />
@@ -25,6 +25,6 @@
     <input type="text" id="maindoughWater" name="maindoughWater" oninput="onChange('maindoughWater'),this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" />
     <br>
     <label for="maindoughHydration">Hydration (in %):</label>
-    <input type="text" id="maindoughHydration" name="maindoughHydration" oninput="onChange('maindoughHydration'),this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" />
+    <input type="text" id="maindoughHydration" name="maindoughHydration" oninput="onChange('maindoughHydration'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
 </body>
 </html>

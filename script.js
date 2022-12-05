@@ -20,7 +20,7 @@ function onChange(name){
             
             // calc maindoughHydration
             let waterTotal = predoughWater + parseInt(maindoughWater.value);
-            maindoughHydration.value = Math.round(waterTotal/flourTotal*100);
+            maindoughHydration.value = Math.round(waterTotal/flourTotal*100*10)/10;
         }
 
         if(name != "maindoughWater" && maindoughHydration.value != "")
