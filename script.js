@@ -19,9 +19,8 @@ function onChange(name){
         let predoughFlour = parseInt(predoughMass.value) / (100+parseInt(predoughHydration.value)) * 100;
         let predoughWater = parseInt(predoughMass.value) / (100+parseInt(predoughHydration.value)) * parseInt(predoughHydration.value);
         let flourTotal = predoughFlour + parseInt(maindoughFlour.value);
-        if(name != "maindoughHydration" && maindoughWater.value != "")
+        if(name == "maindoughWater" && maindoughWater.value != "")
         {
-            
             // calc maindoughHydration
             let waterTotal = predoughWater + parseInt(maindoughWater.value);
             maindoughHydration.value = Math.round(waterTotal/flourTotal*100*10)/10;
