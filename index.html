@@ -23,7 +23,7 @@
     <input type="text" id="maindoughFlour" name="maindoughFlour" oninput="onChange('maindoughFlour'),this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" />
     <br>
     <label for="maindoughHydration">Hydration (in %):</label>
-    <input type="text" id="maindoughHydration" name="maindoughHydration" oninput="onChange('maindoughHydration'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+    <input type="text" id="maindoughHydration" name="maindoughHydration" value="60" oninput="onChange('maindoughHydration'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
     <br>
     <label for="maindoughWater">Menge Wasser (in g):</label>
     <input type="text" id="maindoughWater" name="maindoughWater" oninput="onChange('maindoughWater'),this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" />
