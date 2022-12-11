@@ -33,6 +33,22 @@
     <br>
     <label for="saltGramms">Salz (in g):</label>
     <input type="text" id="saltGramms" name="saltGramms" oninput="onChange('saltGramms'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+    <br>
+    <label for="totalMass">Gesamtmenge (in g):</label>
+    <input readonly type="text" id="totalMass" name="totalMass"/>
+    <br>
+    Salz wird vernachlässigt in Gesamtmenge.
+
+    <h3>Teigballen</h3>
+    Nur relevant, falls Teig in mehrere Teigballen aufgeteilt wird, z.B. um Pizza oder kleine Brötchen zu machen.
+    <br>
+    <label for="ballNumber">Anzahl Teigballen:</label>
+    <input type="text" id="ballNumber" name="ballNumber" oninput="onChange('ballNumber'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+    <br>
+    <label for="ballGramms">Masse Teigball (in g):</label>
+    <input type="text" id="ballGramms" name="ballGramms" oninput="onChange('ballGramms'),this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" />
+
+    
     <h2>Beispiel</h2>
     Du möchtest ein Brot mit 100g Sauerteig-Starter und 500g zusätzlichem Mehl machen. Sauerteig hat typischerweise eine Hydration von 100%, d.h. gleich viel Wasser wie Mehl. Der Teig soll insgesamt eine Hydration von 60% haben. Du musst also eingeben:
     <ul>

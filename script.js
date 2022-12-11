@@ -6,6 +6,10 @@ let maindoughHydration = document.getElementById("maindoughHydration");
 let saltPercentage = document.getElementById("saltPercentage");
 let saltGramms = document.getElementById("saltGramms");
 
+let totalMass = document.getElementById("totalMass");
+let ballNumber = document.getElementById("ballNumber");
+let ballGramms = document.getElementById("ballGramms");
+
 // console.log(predoughHydration.value);
 // console.log(predoughMass.value);
 // console.log(maindoughFlour.value);
@@ -52,6 +56,24 @@ function onChange(name){
             saltPercentage.value = Math.round(parseInt(saltGramms.value) / flourTotal * 100 * 10)/10;
         }
     }
+
+    if (predoughMass.value != "" && maindoughFlour.value != "" && maindoughWater.value != "") {
+        totalMass.value = parseInt(predoughMass.value) + parseInt(maindoughFlour.value) + parseInt(maindoughWater.value);
+    }
+    else{
+        totalMass.value = "";        
+    }
+
+    if(totalMass.value != ""){
+        if(ballNumber.value != "" && name == "ballNumber"){
+            ballGramms.value = Math.round(parseInt(totalMass.value) / parseFloat(ballNumber.value));
+        }
+        if(ballGramms.value != "" && name == "ballGramms"){
+            ballNumber.value = Math.round(parseInt(totalMass.value) / parseInt(ballGramms.value)*10)/10;
+        }
+    }
+
+
 }
 
 
