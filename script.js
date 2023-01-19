@@ -58,7 +58,7 @@ function onChange(name){
     }
 
     if (predoughMass.value != "" && maindoughFlour.value != "" && maindoughWater.value != "") {
-        totalMass.value = parseInt(predoughMass.value) + parseInt(maindoughFlour.value) + parseInt(maindoughWater.value);
+        totalMass.value = parseInt(predoughMass.value) + parseInt(maindoughFlour.value) + parseInt(maindoughWater.value) + parseInt(saltGramms.value);
     }
     else{
         totalMass.value = "";        
@@ -72,8 +72,15 @@ function onChange(name){
             ballNumber.value = Math.round(parseInt(totalMass.value) / parseInt(ballGramms.value)*10)/10;
         }
     }
-
-
+    
+    if (predoughHydration.value != "" && predoughMass.value != "" && maindoughHydration.value != "" && saltPercentage.value != "") {
+        if((ballGramms.value != "" && name == "ballNumber") || (ballNumber.value != "" && name == "ballGramms")){
+            totalMass.value = parseFloat(ballNumber.value) * parseInt(ballGramms.value);
+            // Solve[(1 + hydMain) mFlour + mPre + mFlour saltPer == 
+            //     totalMass, mFlour]
+            // {{mFlour -> (-mPre + totalMass)/(1 + hydMain + saltPer)}}
+        }
+    }
 }
 
 
