@@ -9,47 +9,49 @@
     <script src="script.js" async></script>
 </head>
 <body>
-    <h1>Teig mit Vorteig</h1>
+    <h1>Baker's Math: Teig mit Vorteig</h1>
     <h2>Rechner</h2>
-    <h3>Vorteig (z.B. Sauerteig)</h3>
-    <label for="predoughHydration">Hydration (in %):</label>
-    <input type="text" id="predoughHydration" name="predoughHydration" value="100" oninput="onChange('predoughHydration'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-    <br>
-    <label for="predoughMass">Menge (in g):</label>
-    <input type="text" id="predoughMass" name="predoughMass" value="100" oninput="onChange('predoughMass'),this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" />
+    <div id="teig">
+        <h3>Vorteig (z.B. Sauerteig)</h3>
+        <label for="predoughHydration">Hydration (in %):</label>
+        <input type="text" id="predoughHydration" name="predoughHydration" value="100" oninput="onChange('predoughHydration'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+        <br>
+        <label for="predoughMass">Menge (in g):</label>
+        <input type="text" id="predoughMass" name="predoughMass" value="100" oninput="onChange('predoughMass'),this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" />
 
-    <h3>Hauptteig</h3>
-    <label for="maindoughFlour">Menge Mehl (in g):</label>
-    <input type="text" id="maindoughFlour" name="maindoughFlour" oninput="onChange('maindoughFlour'),this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" />
-    <br>
-    <label for="maindoughHydration">Hydration (in %):</label>
-    <input type="text" id="maindoughHydration" name="maindoughHydration" value="60" oninput="onChange('maindoughHydration'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-    <br>
-    <label for="maindoughWater">Menge Wasser (in g):</label>
-    <input type="text" id="maindoughWater" name="maindoughWater" oninput="onChange('maindoughWater'),this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" />
-    <br>
-    <label for="saltPercentage">Salz (in %):</label>
-    <input type="text" id="saltPercentage" name="saltPercentage" value="2.5" oninput="onChange('saltPercentage'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-    <br>
-    <label for="saltGramms">Salz (in g):</label>
-    <input type="text" id="saltGramms" name="saltGramms" oninput="onChange('saltGramms'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-    <br>
-    <label for="totalMass">Gesamtmenge (in g):</label>
-    <input readonly type="text" id="totalMass" name="totalMass"/>
-    <br>
-    <!-- Salz wird vernachlässigt in Gesamtmenge. -->
+        <h3>Hauptteig</h3>
+        <label for="maindoughFlour">Menge Mehl (in g):</label>
+        <input type="text" id="maindoughFlour" name="maindoughFlour" oninput="onChange('maindoughFlour'),this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" />
+        <br>
+        <label for="maindoughHydration">Hydration (in %):</label>
+        <input type="text" id="maindoughHydration" name="maindoughHydration" value="60" oninput="onChange('maindoughHydration'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+        <br>
+        <label for="maindoughWater">Menge Wasser (in g):</label>
+        <input type="text" id="maindoughWater" name="maindoughWater" oninput="onChange('maindoughWater'),this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" />
+        <br>
+        <label for="saltPercentage">Salz (in %):</label>
+        <input type="text" id="saltPercentage" name="saltPercentage" value="2.5" oninput="onChange('saltPercentage'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+        <br>
+        <label for="saltGramms">Salz (in g):</label>
+        <input type="text" id="saltGramms" name="saltGramms" oninput="onChange('saltGramms'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+        <br>
+        <label for="totalMass">Gesamtmenge (in g):</label>
+        <input readonly type="text" id="totalMass" name="totalMass"/>
+        <br>
+        <!-- Salz wird vernachlässigt in Gesamtmenge. -->
 
-    <h3>Teigballen</h3>
-    Nur relevant, falls Teig in mehrere Teigballen aufgeteilt wird, z.B. um Pizza oder kleine Brötchen zu machen.
-    <br>
-    <label for="ballNumber">Anzahl Teigballen:</label>
-    <input type="text" id="ballNumber" name="ballNumber" oninput="onChange('ballNumber'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-    <br>
-    <label for="ballGramms">Masse Teigball (in g):</label>
-    <input type="text" id="ballGramms" name="ballGramms" oninput="onChange('ballGramms'),this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" />
-
+        <h3>Teigballen</h3>
+        Nur relevant, falls Teig in mehrere Teigballen aufgeteilt wird, z.B. um Pizza oder kleine Brötchen zu machen.
+        <br>
+        <label for="ballNumber">Anzahl Teigballen:</label>
+        <input type="text" id="ballNumber" name="ballNumber" oninput="onChange('ballNumber'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+        <br>
+        <label for="ballGramms">Masse Teigball (in g):</label>
+        <input type="text" id="ballGramms" name="ballGramms" oninput="onChange('ballGramms'),this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" />
+    </div>
     
     <h2>Beispiel</h2>
+    <div>
     Du möchtest ein Brot mit 100g Sauerteig-Starter und 500g zusätzlichem Mehl machen. Sauerteig hat typischerweise eine Hydration von 100%, d.h. gleich viel Wasser wie Mehl. Der Teig soll insgesamt eine Hydration von 60% haben. Du musst also eingeben:
     <ul>
         <li>Vorteig:</li>
@@ -64,7 +66,10 @@
             <li>Wasser: wird berechnet, so dass gewünschte Hydration erreicht</li>
         </ul>
     </ul>
+    </div>
+
     <h2>Tipps</h2>
+    <div>
     <ul>
         <li>Hydration</li>
         <ul>
@@ -79,5 +84,6 @@
             <li>Typische Range: 2%-3%</li>
         </ul>
     </ul>
+</div>
 </body>
 </html>
