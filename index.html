@@ -9,9 +9,10 @@
     <script src="script.js" async></script>
 </head>
 <body>
+    <div id="outer">
     <h1>Baker's Math: Teig mit Vorteig</h1>
     <h2>Rechner</h2>
-    <div id="teig">
+    <div id="inner">
         <h3>Vorteig (z.B. Sauerteig)</h3>
         <label for="predoughHydration">Hydration (in %):</label>
         <input type="text" id="predoughHydration" name="predoughHydration" value="100" oninput="onChange('predoughHydration'),this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
@@ -51,7 +52,7 @@
     </div>
     
     <h2>Beispiel</h2>
-    <div>
+    <div id="inner">
     Du möchtest ein Brot mit 100g Sauerteig-Starter und 500g zusätzlichem Mehl machen. Sauerteig hat typischerweise eine Hydration von 100%, d.h. gleich viel Wasser wie Mehl. Der Teig soll insgesamt eine Hydration von 60% haben. Du musst also eingeben:
     <ul>
         <li>Vorteig:</li>
@@ -69,7 +70,7 @@
     </div>
 
     <h2>Tipps</h2>
-    <div>
+    <div id="inner">
     <ul>
         <li>Hydration</li>
         <ul>
