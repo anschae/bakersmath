@@ -20,17 +20,124 @@ let ballGramms = document.getElementById("ballGramms");
 //    // updateMainDough()
 // }
 
-// function updateMainDough(singleUpdate=true){
-//     if(!singleUpdate){
-//         //updateDoughBalls()
-//     }
-// }
+function updateMainDough(singleUpdate=true){
+
+
+
+    if(!singleUpdate){
+        //updateDoughBalls()
+    }
+}
 
 // function updateDoughBalls(){
 //     // updateMainDough()
 // }
 
+function pos(x){
+    if(x >= 0){
+        return x;
+    }
+    return "";
+}
+
 function onChange(changed){
+    // PREDOUGH
+    let predoughFlour = 0;
+    let predoughWater = 0;
+    if(predoughMass.value != "" && predoughHydration != ""){
+        predoughFlour = parseInt(predoughMass.value) / (100+parseInt(predoughHydration.value)) * 100;
+        predoughWater = parseInt(predoughMass.value) / (100+parseInt(predoughHydration.value)) * parseInt(predoughHydration.value);
+    }
+
+    // change main dough if predough changes
+    if((changed == "predoughMass" && predoughHydration != "") || (changed == "predoughHydration" && predoughMass != "")){
+        onChange("maindoughFlour"); // adjusts maindoughWater to predough and maindoughHydration and maindoughFlour
+    }
+
+    // MAIN DOUGH
+    let flourTotal = predoughFlour;
+    if(maindoughFlour.value != ""){
+        flourTotal += parseInt(maindoughFlour.value);
+    }
+    
+    if(changed == "maindoughFlour"){
+        if(maindoughHydration.value != ""){
+            maindoughWater.value = pos(Math.round(flourTotal*parseInt(maindoughHydration.value)/100 - predoughWater));
+        }
+    }
+    if(changed == "maindoughHydration"){
+        if(maindoughFlour.value != ""){
+            maindoughWater.value = pos(Math.round(flourTotal*parseInt(maindoughHydration.value)/100 - predoughWater));
+        }
+    }
+    if(changed == "maindoughWater"){
+        if(maindoughHydration.value != ""){
+            maindoughFlour.value = pos(Math.round((parseInt(maindoughWater.value) + parseInt(predoughWater)/(parseFloat(maindoughHydration.value)/100) - predoughFlour)));
+        }
+    }
+
+    // SALT
+    if (saltGramms.value == ""){
+        saltGramms.value = 0;
+    }
+
+    if(changed != "saltGramms" && saltPercentage.value != "" && flourTotal > 0)
+    {
+        saltGramms.value = parseInt(Math.round(flourTotal*parseFloat(saltPercentage.value) / 100));
+    }
+    if(changed == "saltGramms" && saltGramms.value != "")
+    {
+        saltPercentage.value = Math.round(parseInt(saltGramms.value) / flourTotal * 100 * 10)/10;
+    }
+
+    // TOTAL MASS
+    if (predoughMass.value != "" && maindoughFlour.value != "" && maindoughWater.value != "") {
+        totalMass.value = parseInt(predoughMass.value) + parseInt(maindoughFlour.value) + parseInt(maindoughWater.value) + parseInt(saltGramms.value);
+    }
+    else{
+        totalMass.value = "";
+        // ballGramms.value = "";  
+    }
+
+    // DOUGH BALLS
+    if(totalMass.value != "" && ballNumber.value != "" && changed != "ballGramms"){
+        ballGramms.value = Math.round(parseInt(totalMass.value) / parseFloat(ballNumber.value));
+    }
+    if(changed == "ballGramms"){
+        if(ballNumber.value != "" && maindoughHydration.value != "" && saltGramms.value != ""){
+            totalMass.value = parseInt(ballNumber.value) * parseInt(ballGramms.value);
+            console.log( parseInt(totalMass.value) -parseInt(maindoughHydration.value)/100*predoughFlour - predoughFlour*(parseInt(predoughHydration.value)/100 + parseInt(saltPercentage.value)/100) );
+            maindoughFlour.value = pos(Math.round(
+                (-parseInt(maindoughHydration.value)/100*predoughFlour - predoughFlour*(parseInt(predoughHydration.value)/100 + parseInt(saltPercentage.value)/100) + parseInt(totalMass.value)) / 
+                (1 + parseInt(maindoughHydration.value)/100 + parseInt(saltPercentage.value)/100)
+            ))
+            onChange("maindoughFlour"); 
+        }
+    }
+         
+        
+        // if(ballNumber.value != "" && changed == "ballNumber"){
+        //     ballGramms.value = Math.round(parseInt(totalMass.value) / parseFloat(ballNumber.value));
+        // }
+        // if(ballGramms.value != "" && changed == "ballGramms"){
+        //     ballNumber.value = Math.round(parseInt(totalMass.value) / parseInt(ballGramms.value)*10)/10;
+        // }
+    
+
+    // if(totalMass.value != ""){
+    //     if(ballNumber.value != "" && changed == "ballNumber"){
+    //         ballGramms.value = Math.round(parseInt(totalMass.value) / parseFloat(ballNumber.value));
+    //     }
+    //     if(ballGramms.value != "" && changed == "ballGramms"){
+    //         ballNumber.value = Math.round(parseInt(totalMass.value) / parseInt(ballGramms.value)*10)/10;
+    //     }
+    // }
+
+}
+
+
+function onChangeOld(changed){
+
     if (predoughHydration.value != "" && predoughMass.value != "" && maindoughFlour.value != "") {
 
         // MAIN DOUGH
