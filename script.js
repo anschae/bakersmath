@@ -79,6 +79,8 @@ function onChange(changed){
     // DOUGH BALLS
     if(totalMass.value != "" && ballNumber.value != "" && changed != "ballGramms"){
         ballGramms.value = Math.round(parseInt(totalMass.value) / parseFloat(ballNumber.value));
+    }else{
+        ballGramms.value = "";
     }
     if(changed == "ballGramms"){
         if(ballNumber.value != "" && maindoughHydration.value != "" && saltGramms.value != ""){
